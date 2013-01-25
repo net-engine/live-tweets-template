@@ -6,6 +6,7 @@ tweetRace.tweets = [];
 
 // Start the race with settings from tweets[]
 tweetRace.start = _.throttle(function(map){
+    $('#info').html(tweets[0] + ' ' + tweets[1] + ' ' + tweets[2]);
     if (map) tweetRace._map = map;
     $('th.first').text(tweets[0] + ' tweets');
     $('th.second').text(tweets[1] + ' tweets');
@@ -110,6 +111,8 @@ tweetRace.map = function() {
     var features = [];
 
     _.each(_.rest(tweetRace.tweets, tweetRace.last || 0), function(tweet) {
+        console.log(['in map', tweet]);
+        $('#last_tweet').html(tweet.text);
         features.push({
             type: 'Feature',
             geometry: { 

@@ -34,8 +34,9 @@
         </table>
         <a href="#" id="stop">Pause</a>
         <div id="about">
-            <h2>About this Site</h2>
-            <p>Follow two competing live Twitter feeds, one including tweets with the keyword 'play', and one with tweets that include the keyword 'work'. Find out which parts of the country are working hardest and which ones are having the most fun. </p>
+            <p id='info'></p>
+            <h2>Last Tweet</h2>
+            <p id='last_tweet'></p>
         </div>
     </div>
 
@@ -47,16 +48,21 @@
     
         // Specify the tweets and location / radius to search
         var tweets = [
-            'work',             // First term
-            'play',             // Second term
-            '39,-98,1500mi'     // search location and radius (lat,lon,radius)
+            "NowPlaying",             // First term
+            'I',             // Second term
+            // '39,-98,1500mi'     // DEFAULT search location and radius (lat,lon,radius)
+            // '-30,-220,10000mi'     // AU search location and radius (lat,lon,radius)
+            '39,-98,10000mi'     // something working
+
         ];
 
         mapbox.auto('map', 'examples.map-dg7cqh4z', function(map, tiledata) {
             map.centerzoom({
-                lat: 40,
-                lon: -80
-            }, 4);
+                // lat: 40,
+                // lon: -80
+                lat: -30,
+                lon: -220
+            }, 1);
 
             map.setZoomRange(2, 15);
             tweetRace.start(map);
@@ -66,5 +72,6 @@
         });
         
     </script>
+
 </body>
 </html>
