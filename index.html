@@ -50,9 +50,9 @@
         var tweets = [
             "NowPlaying",             // First term
             'I',             // Second term
-            // '39,-98,1500mi'     // DEFAULT search location and radius (lat,lon,radius)
+            '39,-98,1500mi'     // DEFAULT search location and radius (lat,lon,radius)
             // '-30,-220,10000mi'     // AU search location and radius (lat,lon,radius)
-            '39,-98,10000mi'     // something working
+            // '-22,150,6500mi'     // AU
 
         ];
 
@@ -60,8 +60,8 @@
             map.centerzoom({
                 // lat: 40,
                 // lon: -80
-                lat: -30,
-                lon: -220
+                lat: -22,
+                lon: 150
             }, 1);
 
             map.setZoomRange(2, 15);

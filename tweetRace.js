@@ -11,7 +11,7 @@ tweetRace.start = _.throttle(function(map){
     $('th.first').text(tweets[0] + ' tweets');
     $('th.second').text(tweets[1] + ' tweets');
     tweetRace.getTweets(tweets[0] + ' OR ' + tweets[1], tweets[2]);
-}, 2000);
+}, 200000);
 
 tweetRace.params = {
     rpp: 100,
@@ -164,6 +164,9 @@ tweetRace.map = function() {
     });
 
     tweetRace.counters();
+
+    $('#map').children().css('pointer-events', 'visiblePainted');
+
     if (!tweetRace.stop) tweetRace.start();
 };
 
@@ -183,12 +186,13 @@ $('#stop').click(function(e){
 });
 
 
-            tweetRace.tweets.push({
-                lon: -220,
-                lat: -30,
-                time: "11:43 AM",
-                text: "We are here",
-                user: '@System',
-                category: 'first'
-            });
+tweetRace.tweets.push({
+    lat: -22,
+    lon: 150,
+    time: "11:43 AM",
+    text: "We are here",
+    user: '@System',
+    category: 'first'
+});
+
 
