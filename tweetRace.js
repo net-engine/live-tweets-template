@@ -12,7 +12,7 @@ tweetRace.start = _.throttle(function(map){
     $('th.second').text(tweets[1] + ' tweets');
     tweetRace.getTweets(tweets[0] + ' OR ' + tweets[1], tweets[2]);
 }, 2000);
-    
+
 tweetRace.params = {
     rpp: 100,
     callback: 'callback',
@@ -181,3 +181,14 @@ $('#stop').click(function(e){
         tweetRace.stop = true;
     }
 });
+
+
+            tweetRace.tweets.push({
+                lon: -220,
+                lat: -30,
+                time: "11:43 AM",
+                text: "We are here",
+                user: '@System',
+                category: 'first'
+            });
+
