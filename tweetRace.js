@@ -11,7 +11,7 @@ tweetRace.start = _.throttle(function(map){
     $('th.first').text(tweets[0] + ' tweets');
     $('th.second').text(tweets[1] + ' tweets');
     tweetRace.getTweets(tweets[0] + ' OR ' + tweets[1], tweets[2]);
-}, 200000);
+}, 2000);
 
 tweetRace.params = {
     rpp: 100,
@@ -56,8 +56,10 @@ tweetRace.processTweet = function(d) {
                     lat = parseFloat($lat);
             }
         }
-        
-        if (lat && lon) {
+        var hash = true;
+        // var hash = element.text.match(/#NowPlaying/).length > 0;
+
+        if (lat && lon && hash) {
             tweetRace.tweets.push({
                 lon: lon,
                 lat: lat,
@@ -165,6 +167,7 @@ tweetRace.map = function() {
 
     tweetRace.counters();
 
+    console.log(['our']);
     $('#map').children().css('pointer-events', 'visiblePainted');
 
     if (!tweetRace.stop) tweetRace.start();
@@ -194,5 +197,4 @@ tweetRace.tweets.push({
     user: '@System',
     category: 'first'
 });
-
 
